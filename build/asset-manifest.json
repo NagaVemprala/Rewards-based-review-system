@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Rewards-based-review-system/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/Rewards-based-review-system/static/js/main.f71dee28.chunk.js",
+    "main.js.map": "/Rewards-based-review-system/static/js/main.f71dee28.chunk.js.map",
+    "runtime-main.js": "/Rewards-based-review-system/static/js/runtime-main.7187292b.js",
+    "runtime-main.js.map": "/Rewards-based-review-system/static/js/runtime-main.7187292b.js.map",
+    "static/js/2.b31e7244.chunk.js": "/Rewards-based-review-system/static/js/2.b31e7244.chunk.js",
+    "static/js/2.b31e7244.chunk.js.map": "/Rewards-based-review-system/static/js/2.b31e7244.chunk.js.map",
+    "index.html": "/Rewards-based-review-system/index.html",
+    "precache-manifest.58e4615ed86209c026d07032d0c54c7c.js": "/Rewards-based-review-system/precache-manifest.58e4615ed86209c026d07032d0c54c7c.js",
+    "service-worker.js": "/Rewards-based-review-system/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/Rewards-based-review-system/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.b31e7244.chunk.js.LICENSE.txt": "/Rewards-based-review-system/static/js/2.b31e7244.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7187292b.js",
+    "static/js/2.b31e7244.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.f71dee28.chunk.js"
+  ]
+}
