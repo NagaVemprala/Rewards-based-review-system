@@ -4,6 +4,9 @@
   "config" : { "python" : "python2.7" },
   "private": true,
   "homepage": "https://NagaVemprala.github.io/Rewards-based-review-system/",
+  "engines": {
+    "node": "10.16.3"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
