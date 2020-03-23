@@ -11,8 +11,6 @@ class showProduct extends Component {
         const deployedProduct = ecommerceReviews(props.query.address);
         console.log('address ', props.query.address, 'props.query.reviewNumber', props.query.reviewNumber);
         const summary = await deployedProduct.methods.getProductSummary().call();
-        // const { fromNotifications } = this.props.match.params;
-        // console.log(fromNotifications);
         return { 
         	address: props.query.address,
         	reviewNumber: props.query.reviewNumber,

@@ -20,6 +20,7 @@ class newProduct extends Component {
 		this.setState({loading: true, errorMessage: '' });
 		try{ 
 		  const accounts = await web3.eth.getAccounts();
+		  this.setState({account: accounts[0]});
 		  await ecommerce.methods.createProduct(this.state.minimumRewards, this.state.productName).send({
 		  	  from: accounts[0]
 		  });
