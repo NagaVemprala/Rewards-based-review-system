@@ -8,7 +8,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
-    "node-pre-gyp": "0.14.0",
+    "windows-build-tools": "5.2.2",
     "next": "^4.1.4",
     "next-routes": "^1.4.2",
     "react": "^16.13.0",
@@ -17,9 +17,6 @@
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.2",
     "solc": "^0.4.25"
-  },
-  "engines": {
-    "npm": "5.7.1"
   },
   "scripts": {
     "python": "python2.7",
