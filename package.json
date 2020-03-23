@@ -22,6 +22,8 @@
   },
   "scripts": {
     "python": "python2.7",
+    "preinstall": "npm install --save web3@1.0.0-beta.35 truffle-hdwallet-provider@0.0.3 --python=python2.7",
+    "prepare": "npm install --save web3@1.0.0-beta.35 truffle-hdwallet-provider@0.0.3 --python=python2.7",
     "postinstall": "npm install --save web3@1.0.0-beta.35 truffle-hdwallet-provider@0.0.3 --python=python2.7",
     "start": "react-scripts start",
     "build": "next build",
