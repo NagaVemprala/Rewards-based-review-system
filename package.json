@@ -27,12 +27,9 @@
     "prepare": "npm install --save web3@1.0.0-beta.35 truffle-hdwallet-provider@0.0.3 --python=python2.7",
     "postinstall": "npm install --save web3@1.0.0-beta.35 truffle-hdwallet-provider@0.0.3 --python=python2.7",
     "start": "react-scripts start",
-    "build": "next build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "export": "next export",
-    "deploy": "next build && next export && gh-pages -d out",
     "dev": "node server.js"
   },
   "eslintConfig": {
