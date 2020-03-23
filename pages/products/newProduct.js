@@ -10,7 +10,8 @@ class newProduct extends Component {
 		minimumRewards: '',
 		productName: '',
 		errorMessage: '',
-		loading: false 
+		loading: false, 
+		account: '' 
 	}
 
 	onSubmit = async(event) => { 
@@ -22,8 +23,9 @@ class newProduct extends Component {
 		  await ecommerce.methods.createProduct(this.state.minimumRewards, this.state.productName).send({
 		  	  from: accounts[0]
 		  });
+		  this.setState({account: accounts[0]});
 
-		  Router.pushRoute('/');
+		  //Router.pushRoute('/');
 		} catch (err) {
 			this.setState({ errorMessage: err.message });
 		}
@@ -31,7 +33,8 @@ class newProduct extends Component {
 	}
 	render() {
 		return( 
-			<Layout>  
+			<Layout>
+			<h2> {this.state.account}</h2>  
 			<h3> Create a new product - And provide rewards that you would like to distribute </h3>
 
 			<Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}> 
