@@ -29,6 +29,7 @@
     "start": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "build": "next build",
     "predeploy": "npm run build",
     "dev": "node server.js"
   },
