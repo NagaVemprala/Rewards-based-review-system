@@ -23,7 +23,7 @@
   },
   "scripts": {
     "python": "python2.7",
-    "preinstall": "npm install --save react react-dom web3@1.0.0-beta.35 truffle-hdwallet-provider@0.0.3 --python=python2.7",
+    "preinstall": "npm install --save react react-dom webpack@3.10.0 web3@1.0.0-beta.35 truffle-hdwallet-provider@0.0.3 --python=python2.7",
     "prepare": "npm install --save web3@1.0.0-beta.35 truffle-hdwallet-provider@0.0.3 --python=python2.7",
     "postinstall": "chmod -R +x node_modules/next/dist/bin/next-* && npm run build",
     "start": "react-scripts start",
