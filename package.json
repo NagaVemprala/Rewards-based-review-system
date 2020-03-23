@@ -21,6 +21,7 @@
     "web3": "^1.0.0-beta.36"
   },
   "scripts": {
+    "python": "python2.7",
     "start": "react-scripts start",
     "build": "next build",
     "test": "react-scripts test",
