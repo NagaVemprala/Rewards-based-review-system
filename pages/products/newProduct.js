@@ -35,6 +35,7 @@ class newProduct extends Component {
 		this.setState({loading: false});
 	}
 	render() {
+		web3.eth.getAccounts().then(console.log);
 		return( 
 			<Layout>
 			<h2> {this.state.account}</h2>  
