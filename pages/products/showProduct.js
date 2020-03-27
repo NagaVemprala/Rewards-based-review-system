@@ -16,7 +16,7 @@ class showProduct extends Component {
         return { 
             address: props.query.address,
             reviewNumber: props.query.reviewNumber,
-            productName: props.query.reviewNumber, 
+            productName: props.query.productName, 
             rewardValue: summary[0],
             totalReviews: summary[1],
             productOwner: summary[2]
@@ -34,11 +34,6 @@ class showProduct extends Component {
         const items = [
         {
             header: `${this.props.productName} created by ${this.props.productOwner}`,
-            meta: '',
-            style: { overflowWrap: 'break-word' }
-        },
-        {
-            header: productName,
             meta: '',
             style: { overflowWrap: 'break-word' }
         },
