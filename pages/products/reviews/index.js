@@ -7,7 +7,7 @@ import RequestRow from '../../../components/RequestRow';
 
 class showReviews extends Component {
 
-	static async getInitialProps(props) {
+  static async getInitialProps(props) {
         const { address } = props.query;
         console.log('Right address is not fetched ', address);
         const deployedProduct = ecommerceReviews(address);
@@ -20,7 +20,7 @@ class showReviews extends Component {
         return { address, reviews, reviewsCount};
     }
 
-    renderRows() {
+  renderRows() {
         console.log(this.props.reviews);
         return this.props.reviews.map((review, index) => {
             return (

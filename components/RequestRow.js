@@ -9,15 +9,6 @@ class RequestRow extends Component {
     errorMessage: ''
   };
 
-  onApprove = async () => {
-    const deployedProduct = ecommerceReviews(this.props.address);
-
-    const accounts = await web3.eth.getAccounts();
-    await deployedProduct.methods.approveRequest(this.props.id).send({
-      from: accounts[0]
-    });
-  };
-
   onRate = async (event, data) => {
     try { 
       console.log('so the address is right', this.props.address);

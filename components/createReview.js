@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, TextArea, Message, Button } from 'semantic-ui-react';
+import { Form, TextArea, Message, Button, Header } from 'semantic-ui-react';
 import ecommerceReviews from '../ethereum/deployProduct';
 import web3 from '../ethereum/web3';
 import { Router } from '../routes';
@@ -8,7 +8,8 @@ class createReview extends Component {
   state = {
     reviewText: '',
     errorMessage: '',
-    loading: false
+    loading: false, 
+    account: ''
   };
 
   onSubmit = async event => {
@@ -24,10 +25,11 @@ class createReview extends Component {
         const accounts = await web3.eth.getAccounts();
         await deployedProduct.methods.createReview(this.state.reviewText, accounts[0]).send({
         from: accounts[0]
-        });
-        this.setState({ reviewText: "" });
+      });
 
+        this.setState({account: accounts[0]});
         Router.replaceRoute(`/products/${this.props.address}`);
+        this.setState({ reviewText: "" });
       } catch (err) {
         this.setState({ errorMessage: err.message });
       }
@@ -36,9 +38,10 @@ class createReview extends Component {
         const accounts = await web3.eth.getAccounts();
         await deployedProduct.methods.updateReview(this.state.reviewText, this.props.reviewNumber).send({
         from: accounts[0]
-      });
+        });
 
         Router.replaceRoute(`/products/${this.props.address}`);
+        this.setState({ reviewText: "" });
       } catch (err) {
         this.setState({ errorMessage: err.message });
       }
@@ -49,13 +52,16 @@ class createReview extends Component {
   };
 
   render() {
+    const HeaderExampleBlock = () => (
+      <Header as='h3' block>Block Header</Header>
+    );
+
     return (
       <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
         <Form.Field>
-          <label>New Review or Update Your Existing Review</label>
+          <h3 class="ui block header">Same Place - New Review or Update Your Existing Review</h3>
           <TextArea
-            reviewText={this.state.value}
-            onChange={event => this.setState({ reviewText: event.target.value })}
+            onChange={event => this.setState({ reviewText: event.target.value, value: '' })}
             label="TEXT"
             labelPosition="right"
           />

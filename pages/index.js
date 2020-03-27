@@ -1,37 +1,35 @@
 import React, { Component }  from 'react';
 import ReactDOM from 'react-dom';
 import ecommerce from '../ethereum/ecommerce';
-import { Card, Button } from 'semantic-ui-react';
+import { Card, Button, Table } from 'semantic-ui-react';
 import Layout from '../components/Layout';
+import RequestProduct from '../components/RequestProduct';
 import { Link } from '../routes';
 
 class ecommerceIndex extends Component {
 
   static async getInitialProps() {
-    const deployedProducts = await ecommerce.methods.getDeployedProducts().call();
-    return { deployedProducts };
+
+    const productsCount = await ecommerce.methods.getProductsCount().call();
+    const deployedProducts = await Promise.all(Array(parseInt(productsCount)).fill().map((element, index) => {
+            return ecommerce.methods.deployedProducts(index).call();
+    }));
+    return { deployedProducts};
   }
 
   renderProducts() {
-    const items = this.props.deployedProducts.map(address => {
-    	console.log(address)
-    return {
-        header: address[1], 
-        description: (
-        	<Link route={`/products/${address[0]}`}>
-              <a>View all the reviews for {address[0]} </a>
-            </Link>
-        ),
-        fluid: true
-      };
+    return this.props.deployedProducts.map((product, index) => {
+            return (
+                <RequestProduct
+                key={index}
+                id={index}
+                product={product}
+                />
+                );
     });
-
-    return <Card.Group items={items} />;
-
   }
 
   render () { 
-    
     let styles1 = {
       margin: 'auto',
       marginleft: 'auto',
@@ -48,6 +46,7 @@ class ecommerceIndex extends Component {
       height: 'auto',
     };
 
+    const { Header, Row, HeaderCell, Body } = Table;
     return (
     <Layout>
       
@@ -61,7 +60,7 @@ class ecommerceIndex extends Component {
       
 
       <div>
-        <h3 style={styles2}> Available Products for Writing Reviews & Earn Rewards </h3>
+        <h3 style={styles2}> Available Products to write reviews & earn rewards </h3>
         <hr/>
         <Link route="/products/newProduct">
           <a>
@@ -73,7 +72,16 @@ class ecommerceIndex extends Component {
             />
           </a>
         </Link>
-        {this.renderProducts()}
+        <Table>
+          <Header>
+            <Row>
+              <HeaderCell>Id</HeaderCell>
+              <HeaderCell>Product Name</HeaderCell>
+              <HeaderCell>Product Address</HeaderCell>
+            </Row>
+          </Header>
+          <Body>{this.renderProducts()}</Body>
+        </Table>
         
       </div>
     </Layout>

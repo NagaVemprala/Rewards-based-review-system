@@ -21,6 +21,10 @@ contract allProducts {
     function getDeployedProducts() public view returns (productStruct[]) {
         return deployedProducts;
     }
+
+    function getProductsCount() public view returns (uint) {
+        return deployedProducts.length;
+    }
 }
 
 contract ecommerceReviews {
@@ -54,7 +58,6 @@ contract ecommerceReviews {
     
     function createReview(string _reviewText, address _reviewer) {
         // Before doing anything on Blockchain perform code to check for duplicate reviews 
-        require(checkReviewExist()==false);
         reviewStruct memory newReview = reviewStruct({
             reviewText: _reviewText,
             averageRating: 1,
@@ -85,23 +88,6 @@ contract ecommerceReviews {
         }
         review.raters[msg.sender] = _rating;
     }
-
-    function checkReviewExist() private view returns (bool) {
-        for (uint count = 0; count < reviews.length; count++) {
-            reviewStruct memory review = reviews[count];
-            if (review.reviewerAddress == msg.sender) return true; 
-        }
-        return false;
-    }
-
-    function getReviewIndex() private view returns (uint) {
-        for (uint count = 0; count < reviews.length; count++) {
-            reviewStruct memory review = reviews[count];
-            if (review.reviewerAddress == msg.sender) return count; 
-        }
-        return 99999999;
-    }
-
 
     function getProductSummary() public view returns (
       uint, uint, address

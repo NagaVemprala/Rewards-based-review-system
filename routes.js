@@ -5,5 +5,6 @@ routes
 .add('/products/:address', '/products/showProduct')
 .add('/products/:address/reviews', '/products/reviews/index')
 .add('/products/:address/:reviewNumber', '/products/showProduct')
+.add('/products/:address/:productNumber/:productName', '/products/showProduct')
 .add('/products/:address/reviews/new', '/products/showProduct');
 module.exports = routes;
