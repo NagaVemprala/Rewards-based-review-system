@@ -63,7 +63,7 @@ class RequestRow extends Component {
         <Cell>{review.totalRatings}</Cell>
         <Cell>{review.complete}</Cell>
         <Cell>
-          <Button color="blue"> {review.reviewerAddress} </Button>
+          <Link route={`/products/${this.props.address}/${id}`} params={{reviewNumber: `${id}`}}><a color='white'><Button color="blue" >{review.reviewerAddress}</Button></a></Link>
         </Cell>
       </Row>
 
