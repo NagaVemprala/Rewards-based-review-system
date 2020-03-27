@@ -24,7 +24,8 @@ class createReview extends Component {
         const accounts = await web3.eth.getAccounts();
         await deployedProduct.methods.createReview(this.state.reviewText, accounts[0]).send({
         from: accounts[0]
-      });
+        });
+        this.setState({ reviewText: "" });
 
         Router.replaceRoute(`/products/${this.props.address}`);
       } catch (err) {

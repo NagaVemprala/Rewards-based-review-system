@@ -32,10 +32,37 @@ class ecommerceIndex extends Component {
 
   render () { 
     
+    let styles1 = {
+      margin: 'auto',
+      marginleft: 'auto',
+      marginright: 'auto',
+      width: '500px',
+      height: 'auto',
+      backgroundColor: 'powderblue',
+    };
+    let styles2 = {
+      margin: 'auto',
+      marginleft: 'auto',
+      marginright: 'auto',
+      width: '500px',
+      height: 'auto',
+    };
+
     return (
     <Layout>
+      
+      <div className="box" style={styles1}>
+        <hr/>
+        <div> <strong>Step 1. </strong> Add extension metamask (crypto wallet) and login with your tokens </div>
+        <div> <strong>Step 2. </strong> We are performing transactions on Rinkeby Test Network. Select it. </div>
+        <div> <strong>Step 3. </strong> Copy the address and send email to Naga.Vemprala@gmail.com to get some ether with address and this website name in subject </div>
+        <hr/>
+      </div>
+      
+
       <div>
-        <h3> Available Products for Writing Reviews & Earn Rewards </h3>
+        <h3 style={styles2}> Available Products for Writing Reviews & Earn Rewards </h3>
+        <hr/>
         <Link route="/products/newProduct">
           <a>
             <Button

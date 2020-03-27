@@ -28,7 +28,7 @@ class newProduct extends Component {
 		  });
 		  this.setState({account: accounts[0]});
 
-		  //Router.pushRoute('/');
+		  Router.pushRoute('/');
 		} catch (err) {
 			this.setState({ errorMessage: err.message });
 		}
@@ -36,9 +36,28 @@ class newProduct extends Component {
 	}
 	render() {
 		web3.eth.getAccounts().then(console.log);
+      let styles1 = {
+        margin: 'auto',
+        marginleft: 'auto',
+        marginright: 'auto',
+        width: '500px',
+        height: 'auto',
+        backgroundColor: 'powderblue',
+      };
+      let styles2 = {
+        margin: 'auto',
+        marginleft: 'auto',
+        marginright: 'auto',
+        width: '500px',
+        height: 'auto',
+      };
 		return( 
 			<Layout>
-			<h2> {this.state.account}</h2>  
+			<div className="box" style={styles1}>
+			<hr/>
+			<div> Enter the amount of rewards you would like to distribute as rewards for writing helpful reviews & the description of the product for which you want the reviews to be written </div>
+            <hr/>
+            </div>
 			<h3> Create a new product - And provide rewards that you would like to distribute </h3>
 
 			<Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}> 
