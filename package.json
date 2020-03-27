@@ -1,9 +1,7 @@
 {
   "name": "ecommercefinal-react",
   "version": "0.1.0",
-  "config" : { "python" : "python2.7" },
   "private": true,
-  "homepage": "https://NagaVemprala.github.io/Rewards-based-review-system/",
   "engines": {
     "node": "10.16.3"
   },
@@ -11,6 +9,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "core-js": "^3.0.0",
     "next": "^4.1.4",
     "next-routes": "^1.4.2",
     "react-native-version-number": ">=0.3.4",
