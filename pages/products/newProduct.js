@@ -8,6 +8,7 @@ import { Router } from '../../routes';
 class newProduct extends Component { 
 	state = {
 		minimumRewards: '',
+		minimumThresholdRating: '',
 		productName: '',
 		errorMessage: '',
 		loading: false, 
@@ -23,7 +24,8 @@ class newProduct extends Component {
 		  console.log("web3.version --> ", web3.version);
 		  console.log("accounts --> ", accounts);
 		  this.setState({account: accounts[0]});
-		  await ecommerce.methods.createProduct(this.state.minimumRewards, this.state.productName).send({
+		  const contractOwner = await ecommerce.methods.contractOwner().call();
+		  await ecommerce.methods.createProduct(web3.utils.toWei(this.state.minimumRewards, 'ether'), Math.round(this.state.minimumThresholdRating), this.state.productName).send({
 		  	  from: accounts[0]
 		  });
 		  this.setState({account: accounts[0]});
@@ -58,7 +60,6 @@ class newProduct extends Component {
 			<div> Enter the amount of rewards you would like to distribute as rewards for writing helpful reviews & the description of the product for which you want the reviews to be written </div>
             <hr/>
             </div>
-			<h3> Create a new product - And provide rewards that you would like to distribute </h3>
 
 			<Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}> 
 				<Form.Field> 
@@ -69,6 +70,15 @@ class newProduct extends Component {
 					  value={this.state.minimumRewards}
 					  onChange={event => this.setState({minimumRewards: event.target.value})} 
 					/>
+					<label> Minimum quality of rating that a review should have to receive rewards </label>
+					<Input 
+					  label='minimum rating to get rewarded' 
+					  labelPosition="right"
+					  value={this.state.minimumThresholdRating}
+					  onChange={event => this.setState({minimumThresholdRating: event.target.value})} 
+					/>
+					<p style={{textindent: '5em',}}>  </p>
+					<label> Enter your product details please ! </label>
 					<Input style={{ marginTop: '10px' }}
 					  label='Product Name' 
 					  labelPosition="right"
